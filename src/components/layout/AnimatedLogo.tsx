@@ -3,7 +3,7 @@ import { Ampersand } from "lucide-react";
 
 const words = ["stuff", "mobile", "ux", "ui", "apps"];
 
-const RollingText = ({ animated }: { animated?: boolean }) => {
+const RollingText = () => {
   const [position, setPosition] = useState(0);
 
   useEffect(() => {
@@ -14,9 +14,6 @@ const RollingText = ({ animated }: { animated?: boolean }) => {
     return () => clearInterval(interval);
   }, []);
 
-  if (!animated) {
-    return <>{words[position]}</>;
-  }
   return (
     <div className="relative h-5 overflow-hidden">
       <div
@@ -41,7 +38,7 @@ export const AnimatedLogo = ({ animated = false }: { animated?: boolean }) => (
     <span className="text-indigo-400">web</span>
     <Ampersand className="h-5 w-5 mx-1 text-purple-400" />
     <span className="text-indigo-400">
-      <RollingText animated={animated} />
+      {animated ? <RollingText /> : <>stuff</>}
     </span>
   </div>
 );
