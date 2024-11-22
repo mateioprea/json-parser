@@ -25,17 +25,19 @@ export default function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
-      <header className="bg-white border-b border-gray-200">
+    <div className="min-h-screen flex flex-col bg-gradient-to-br from-gray-50 to-gray-100">
+      <header className="bg-white border-b border-gray-200 flex-none">
         <div className="max-w-[1600px] mx-auto px-6 py-4">
-          <h1 className="text-xl font-bold text-gray-800">JSON Parser</h1>
+          <h1 className="text-xl font-bold text-gray-800">
+            Data Structure Parser
+          </h1>
           <p className="text-sm text-gray-600 mt-1">
-            Automatically detects and parses (some) data structures.
+            Automatically detects and parses JSON or XML data structures
           </p>
         </div>
       </header>
 
-      <main className="py-4">
+      <main className="flex-1 py-4 overflow-hidden">
         <DataStructureParser
           input={input}
           onInputChange={handleInputChange}
