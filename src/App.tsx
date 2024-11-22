@@ -1,9 +1,11 @@
-import React, { useState, useCallback } from "react";
+import { useState, useCallback } from "react";
+
 import { DataStructureParser } from "./components/DataStructureParser";
 import { parseJSON } from "./parsers/jsonParser";
 import { parseXML } from "./parsers/xmlParser";
 import { detectFormat } from "./parsers/detectFormat";
 import type { ParserType } from "./types/parser";
+import { AnimatedLogo } from "./components/layout/AnimatedLogo";
 
 export default function App() {
   const [input, setInput] = useState("");
@@ -37,7 +39,7 @@ export default function App() {
         </div>
       </header>
 
-      <main className="flex-1 py-4 overflow-hidden">
+      <main className="flex-1 py-2 overflow-hidden">
         <DataStructureParser
           input={input}
           onInputChange={handleInputChange}
@@ -46,6 +48,9 @@ export default function App() {
           parserType={parserType}
         />
       </main>
+      <footer className="flex-none gap-2 text-center text-sm text-gray-500 mx-auto pb-1">
+        <AnimatedLogo animated={false} />
+      </footer>
     </div>
   );
 }
